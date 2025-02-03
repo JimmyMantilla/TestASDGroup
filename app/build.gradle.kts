@@ -65,7 +65,6 @@ dependencies {
     testImplementation(libs.mockito.kotlin)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.androidx.lifecycle.runtime.testing)
-    testImplementation(libs.mockito.inline)
     //Coroutines
     implementation(libs.kotlinx.coroutines.core)
     //retrofit2

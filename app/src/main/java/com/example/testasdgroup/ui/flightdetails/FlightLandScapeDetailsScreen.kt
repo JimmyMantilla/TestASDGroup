@@ -3,9 +3,11 @@ package com.example.testasdgroup.ui.flightdetails
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -22,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
@@ -31,91 +34,101 @@ import com.example.testasdgroup.util.extractLaunchInfo
 
 @Composable
 fun FlightLandscapeDetailsScreen(flight: FlightEntity) {
-    Card(
+    Column(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .padding(16.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
-        shape = RoundedCornerShape(16.dp)
+        verticalArrangement = Arrangement.Center, // Center vertically
+        horizontalAlignment = Alignment.CenterHorizontally // Center horizontally
     ) {
-        Row(
+        Card(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            verticalAlignment = Alignment.Top  // Align text to the top of the image
+            elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
+            shape = RoundedCornerShape(16.dp)
         ) {
-            // Image on the left side
-            Image(
-                painter = rememberAsyncImagePainter(
-                    model = flight.patchUrlLarge,
-                    error = painterResource(id = R.drawable.img_placeholder),
-                    placeholder = painterResource(id = R.drawable.img_placeholder)
-                ),
-                contentDescription = "Rocket patch",
+            Row(
                 modifier = Modifier
-                    .size(150.dp)  // Fixed size for image
-                    .clip(RoundedCornerShape(8.dp))
-                    .border(2.dp, Color.Gray, RoundedCornerShape(8.dp))
-            )
-
-            Spacer(modifier = Modifier.width(16.dp))  // Space between image and text
-
-            Column(
-                modifier = Modifier.fillMaxWidth(),
-                verticalArrangement = Arrangement.spacedBy(8.dp)  // Add space between text items
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                verticalAlignment = Alignment.Top  // Align text to the top of the image
             ) {
-                // Flight Number
-                Text(
-                    text = "Flight Number: ${flight.flightNumber}",
-                    style = MaterialTheme.typography.titleLarge,
-                    color = Color.Black
+                // Image on the left side
+                Image(
+                    painter = rememberAsyncImagePainter(
+                        model = flight.patchUrlLarge,
+                        error = painterResource(id = R.drawable.img_placeholder),
+                        placeholder = painterResource(id = R.drawable.img_placeholder)
+                    ),
+                    contentDescription = "Rocket patch",
+                    modifier = Modifier
+                        .size(150.dp)  // Fixed size for image
+                        .clip(RoundedCornerShape(8.dp))
+                        .border(2.dp, Color.Gray, RoundedCornerShape(8.dp))
+                        .align(Alignment.CenterVertically)
                 )
 
-                HorizontalDivider(color = Color.Gray, thickness = 1.dp)
+                Spacer(modifier = Modifier.width(16.dp))  // Space between image and text
 
-                // Mission Name
-                Text(
-                    text = "Mission Name: ${flight.missionName}",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = Color.DarkGray
-                )
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalArrangement = Arrangement.spacedBy(8.dp)  // Add space between text items
+                ) {
+                    // Flight Number
+                    Text(
+                        text = "Numero de vuelo: ${flight.flightNumber}",
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.Black
+                    )
 
-                HorizontalDivider(color = Color.Gray, thickness = 1.dp)
+                    HorizontalDivider(color = Color.Gray, thickness = 1.dp)
 
-                // Rocket Name
-                Text(
-                    text = "Rocket Name: ${flight.rocketName}",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = Color.DarkGray
-                )
+                    // Mission Name
+                    Text(
+                        text = "Nombre de la mision: ${flight.missionName}",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = Color.DarkGray
+                    )
 
-                HorizontalDivider(color = Color.Gray, thickness = 1.dp)
+                    HorizontalDivider(color = Color.Gray, thickness = 1.dp)
 
-                // Rocket Type
-                Text(
-                    text = "Rocket Type: ${flight.rocketType}",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = Color.DarkGray
-                )
+                    // Rocket Name
+                    Text(
+                        text = "Nombre del cohete: ${flight.rocketName}",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = Color.DarkGray
+                    )
 
-                HorizontalDivider(color = Color.Gray, thickness = 1.dp)
+                    HorizontalDivider(color = Color.Gray, thickness = 1.dp)
 
-                // Launch Site
-                Text(
-                    text = "Launch Site: ${flight.details.extractLaunchInfo()}",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = Color.DarkGray
-                )
+                    // Rocket Type
+                    Text(
+                        text = "Tipo de cohete: ${flight.rocketType}",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = Color.DarkGray
+                    )
 
-                HorizontalDivider(color = Color.Gray, thickness = 1.dp)
+                    HorizontalDivider(color = Color.Gray, thickness = 1.dp)
 
-                // Flight Details
-                Text(
-                    text = "Launch Details: ${flight.details}",
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = Color.DarkGray,
-                    textAlign = TextAlign.Start
-                )
+                    // Launch Site
+                    Text(
+                        text = "Lugar de lanzamiento: ${flight.details.extractLaunchInfo()}",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = Color.DarkGray
+                    )
+
+                    HorizontalDivider(color = Color.Gray, thickness = 1.dp)
+
+                    // Flight Details
+                    Text(
+                        text = "Detalles de lanzamiento: ${flight.details}",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = Color.DarkGray,
+                        textAlign = TextAlign.Start
+                    )
+                }
             }
         }
     }

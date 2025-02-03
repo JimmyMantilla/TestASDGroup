@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ASD SPACEX App</string>
-    <string name="main_screen_title">SpaceX App, Esta es una app de prueba para la empresa ASDGroup!</string>
+    <string name="main_screen_title">SpaceX App</string>
     <string name="main_screen_loading_message">Cargando más items...</string>
     <string name="main_screen_invalid_id">ID de vuelo invalido</string>
     <string name="main_screen_loading">Cargando...</string>

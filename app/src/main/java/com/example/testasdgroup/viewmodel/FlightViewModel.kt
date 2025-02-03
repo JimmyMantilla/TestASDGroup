@@ -57,10 +57,10 @@ class FlightViewModel @Inject constructor(
                     _flights.value = currentList + newFlights
                     currentOffset += 20
                 } else {
-                    Log.d("FlightViewModel", "No more flights available to load.")
+                    Log.d("FlightViewModel", "No hay mas vuelos disponibles para cargar")
                 }
             } catch (payloadException: Exception) {
-                Log.e("FlightViewModel", "Error loading more flights", payloadException)
+                Log.e("FlightViewModel", "Error al cargar mas vuelos", payloadException)
             } finally {
                 _isLoading.value = false
             }

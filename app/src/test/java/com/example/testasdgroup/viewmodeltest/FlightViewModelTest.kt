@@ -55,28 +55,28 @@ class FlightViewModelTest {
         val flightList = listOf(
             FlightEntity(
                 1,
-                "Mission 1",
-                "Rocket 1",
-                "Type 1",
-                "Launch Site 1",
-                "Details",
+                "Mision 1",
+                "Cohete 1",
+                "Tipo 1",
+                "Lugar de lanzamiento 1",
+                "Detalles",
                 "PatchUrl",
-                "2023-01-01",
+                "2025-02-01",
                 dateUtc = "",
-                dateUnix = 12323344322,
+                dateUnix = 1738587080,
                 webCastUrl = ""
             ),
             FlightEntity(
                 2,
-                "Mission 2",
-                "Rocket 2",
-                "Type 2",
-                "Launch Site 2",
-                "Details",
+                "Mision 2",
+                "Cohete 2",
+                "Tipo 2",
+                "Lugar de lanzamiento 2",
+                "Detalles",
                 "PatchUrl",
-                "2023-01-02",
+                "2025-02-01",
                 dateUtc = "",
-                dateUnix = 12323344322,
+                dateUnix = 1738587080,
                 webCastUrl = ""
             )
         )
@@ -94,30 +94,30 @@ class FlightViewModelTest {
         val initialFlights = listOf(
             FlightEntity(
                 1,
-                "Mission 1",
-                "Rocket 1",
-                "Type 1",
-                "Launch Site 1",
-                "Details",
+                "Mision 1",
+                "Cohete 1",
+                "Tipo 1",
+                "Lugar de lanzamiento 1",
+                "Detalles",
                 "PatchUrl",
                 "PatchUrlLarge",
                 dateUtc = "",
-                dateUnix = 12323344322,
+                dateUnix = 1738587080,
                 webCastUrl = ""
             )
         )
         val additionalFlights = listOf(
             FlightEntity(
                 2,
-                "Mission 2",
-                "Rocket 2",
-                "Type 2",
-                "Launch Site 2",
-                "Details",
+                "Mision 2",
+                "Cohete 2",
+                "Tipo 2",
+                "Lugar de lanzamiento 2",
+                "Detalles",
                 "PatchUrl",
                 "PatchUrlLarge",
                 dateUtc = "",
-                dateUnix = 12323344322,
+                dateUnix = 1738587080,
                 webCastUrl = ""
             )
         )
@@ -140,15 +140,15 @@ class FlightViewModelTest {
     fun `test getFlightById calls repository and fetches flight by id`() = testScope.runTest {
         val flight = FlightEntity(
             1,
-            "Mission 1",
-            "Rocket 1",
-            "Type 1",
-            "Launch Site 1",
-            "Details",
+            "Mision 1",
+            "Cohete 1",
+            "Tipo 1",
+            "Lugar de Lanzamiento 1",
+            "Detalles",
             "PatchUrl",
-            "2023-01-01",
+            "2025-02-01",
             dateUtc = "",
-            dateUnix = 12323344322,
+            dateUnix = 1738587080,
             webCastUrl = ""
         )
         whenever(repository.getFlightById(1)).thenReturn(flight)
